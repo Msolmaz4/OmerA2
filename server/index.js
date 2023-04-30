@@ -5,6 +5,10 @@ const app  = express()
 
 const dotenv = require('dotenv')
 dotenv.config()
+const db =require('./db/db')
+db()
+
+
 
 const cors = require('cors')
 const bodyParser = require('body-parser')
