@@ -9,4 +9,5 @@ const registerControl  = require('../controller/registerControl')
 router.post('/register',registerControl)
 
 
+
 module.exports = router
