@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 
 
 const db = ()=>{
-    mongoose.connect('mongodb+srv://deneme12:Azxs123456@cluster0.wpuxx.mongodb.net/ab2',
+    mongoose.connect(process.env.MONGO_URL,
     
     {
        //dbName:'ab3',

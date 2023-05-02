@@ -8,7 +8,7 @@ dotenv.config()
 const db =require('./db/db')
 db()
 
-
+const userRouter = require('./router/userRouter')
 
 const cors = require('cors')
 const bodyParser = require('body-parser')
@@ -17,8 +17,9 @@ app.use(cors())
 //"Genişletilmiş" sözdizimi, zengin nesnelerin ve dizilerin URL kodlu biçimde kodlanmasına izin vererek, URL kodlu JSON benzeri bir deneyime olanak tanır.
 app.use(bodyParser.json({limit:'30mb',extended:true}))
 app.use(bodyParser.urlencoded({limit:'30mb',extended:true}))
+app.use('/user',userRouter)
 
-const PORT = 5000
+const PORT = 5001
 
 app.listen(PORT,()=>{
     console.log('server',   PORT)
