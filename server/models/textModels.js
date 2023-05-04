@@ -1,26 +1,18 @@
-const  mongoose = require('mongoose')
-
+const mongoose = require("mongoose");
 
 const textSchema = new mongoose.Schema({
+  title: {
+    type: String,
+    required: true,
+  },
+  description: {
+    type: String,
+    required: true,
+    trim: true,
+  },
 
-     title:{
-        type:String,
-        required:true
-     },
-     description:{
-        type:String,
+  date: { type: Date, default: Date.now },
+});
 
-
-     },
-     img:{
-        type:String,
-        default:''
-     },
-     date: { type: Date, default: Date.now },
-    
-
-
-})
-
-const Text = mongoose.Schema('Text',textSchema) 
-module.exports= Text
+const Text = mongoose.model("Text", textSchema);
+module.exports = Text;
