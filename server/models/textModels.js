@@ -10,12 +10,14 @@ const textSchema = new mongoose.Schema({
      description:{
         type:String,
 
+
      },
      img:{
         type:String,
         default:''
-     }
-
+     },
+     date: { type: Date, default: Date.now },
+    
 
 
 })
