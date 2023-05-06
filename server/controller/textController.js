@@ -3,12 +3,31 @@ const Text = require('../models/textModels')
 
 
 
-const textController = (req,res)=>{
-    const dere = Text.create(req.body)
+const textController = async(req,res)=>{
+   // console.log('text req',req)
+
+
+try {
+    const dere = await Text.create(req.body)
     res.status(201).json({
-        succeded:true,
+    succeded:true,
         dere
     })
+    
+} catch (error) {
+    
+    console.log({
+        succed:false,
+        error
+
+    })
 }
+
+    
+}
+
+
+
+
 
 module.exports = textController
