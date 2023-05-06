@@ -1,15 +1,33 @@
 //login olmadan ana sayfaya gondermiye kontrol icin 
 
+const Users = require("../models/userModel")
 
-const authenticateToken = (req,res,next)=>{
+const jwt = require('jsonwebtoken')
 
-  
+
+const authenticateToken =  async (req,res,next)=>{
+
+  //ussrId jwt icindeki id dikkat et boylece gelen user bulurum 
 
 const authHeader = req.headers['authorization']
-    console.log('authHeader',authHeader)
+    //console.log('authHeader',authHeader)
 
     const token = authHeader && authHeader.split(' ')[1]
-    console.log('token',token)
+    //console.log('token',token)
+
+    if(!token){
+        return res.status(401).json({
+            message:'no token  no eintritt',
+            succed:false
+        })
+    }
+
+    req.user =await Users.findById(
+        jwt.verify(token,process.env.AUTH_KEY).userId
+    )
+    console.log(req.user)
+  next()
+
 
 }
 
