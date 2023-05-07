@@ -1,6 +1,8 @@
 
 
 const  mongoose = require('mongoose')
+//hatalri gostermek icin guyel bir arayuz gibi
+const validator = require('validator')
 
 
 //time veritabaninda kolazlik sagliyazacak
@@ -10,12 +12,16 @@ const userSchema = new mongoose.Schema({
     email:{
         type:String,
         required:true,
-        unique:true,
-        minlength:[6,`biraz uzun yaz`]
+        unique:[true,'email muss eingeben'],
+        minlength:[6,`biraz uzun yaz`],
+        validate:[validator.isAlphanumeric,'sadece rakam ve harf yaziniz']
+        
+
     },
     name:{
         type:String,
-        required:true
+        required:true,
+        lowercase:true
     },
     password:{
         type:String,
