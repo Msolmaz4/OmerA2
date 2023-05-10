@@ -10,7 +10,10 @@ const textSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
-  
+  user:{
+type:mongoose.SchemaTypes.ObjectId,
+ref:'User'
+  },
 
   date: { type: Date, default: Date.now },
 });

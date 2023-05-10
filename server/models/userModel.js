@@ -12,9 +12,7 @@ const userSchema = new mongoose.Schema({
     email:{
         type:String,
         required:true,
-        unique:[true,'email muss eingeben'],
-        minlength:[6,`biraz uzun yaz`],
-        validate:[validator.isAlphanumeric,'sadece rakam ve harf yaziniz']
+       
         
 
     },

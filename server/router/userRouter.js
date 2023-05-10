@@ -9,7 +9,7 @@ const authenticateToken = require('../midderware/authMiddleware')
 
 
 router.post('/register',registerControl)
-router.post('/login',authenticateToken, loginControl)
+router.post('/login',loginControl)
 
 
 

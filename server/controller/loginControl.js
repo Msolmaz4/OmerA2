@@ -23,12 +23,12 @@ const loginControl = async (req,res)=>{
         //kontro icin jwebtoken gelen tokeni alip kopzala orden gorebilirsin
         //expris ne kadar sure canli kalma
          const userToken = jwt.sign(
-            {   email,
+            {  email,
                 userId:emailControll._id},process.env.AUTH_KEY,{expiresIn:'1d'}
          )
+         console.log('loginuserToken',userToken)
          res.status(200).json({
             message:'oluyor',
-
             data:emailControll,
             token:userToken
          })
@@ -36,6 +36,7 @@ const loginControl = async (req,res)=>{
 
         
     } catch (error) {
+        console.log('login',error)
         
     }
 

@@ -20,10 +20,8 @@ const registerControl= async (req,res) =>{
             password :bcrypt.hashSync(password,8),
             email:email
         })
-       // console.log(newwUser)
+        console.log(newwUser)
         newwUser.save()
-
-        
             .then(()=>res.status(200).send('bu is oldu'))
             .catch(()=>res.status('savede patladik'))
         
