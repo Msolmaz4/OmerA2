@@ -12,7 +12,7 @@ const textSchema = new mongoose.Schema({
   },
   user:{
 type:mongoose.SchemaTypes.ObjectId,
-ref:'User'
+ref:'Users'
   },
 
   date: { type: Date, default: Date.now },

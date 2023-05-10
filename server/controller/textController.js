@@ -13,7 +13,7 @@ try {
         {
             title:req.body.title,
             description:req.body.description,
-            
+            user:res.locals.user
 
         }
     )

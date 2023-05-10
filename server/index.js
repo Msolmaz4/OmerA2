@@ -10,6 +10,7 @@ db()
 
 const userRouter = require('./router/userRouter')
 const textRouter =require('./router/textRouter')
+const checkUser = require('./midderware/checkUser')
 
 const cors = require('cors')
 const bodyParser = require('body-parser')
@@ -21,7 +22,7 @@ app.use(bodyParser.urlencoded({limit:'30mb',extended:true}))//bu onden gelen for
 app.use(cookieparser())
 
 
-
+app.use('*',checkUser)
 app.use('/user',userRouter)
 app.use('/text',textRouter)
 
