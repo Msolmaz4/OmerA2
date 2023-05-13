@@ -11,8 +11,10 @@ const registerControl= async (req,res) =>{
             
         if(!name || !password || !email) return res.send('doldurun') 
         //yukarida genek konrrollar
+        
+        //email formatinds olup oladigina d kontro edereiy
+         if(!checkEmail(email)) return res.send('email formaytinda degil')
         //burada email onceden kayili olup oldigini 
-         
         const emailCont = await Users.findOne({email:email})
         if(emailCont) return res.send('kullanici var')
         const newwUser = await new Users({
@@ -31,7 +33,16 @@ const registerControl= async (req,res) =>{
         console.log(error)
         
     }
+
+
+    function checkEmail(email) {
+        var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+        if (!reg.test(email)) return false;
+        return true;
+    }
 }
+
+
 
 
 module.exports = registerControl
