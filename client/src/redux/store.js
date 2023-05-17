@@ -2,6 +2,8 @@ import { applyMiddleware ,combineReducers ,createStore} from 'redux'
 
 import { composeWithDevTools} from  'redux-devtools-extension'
 
+import userReducer from './actions/user'
+
 import thunk from 'redux-thunk'
 
 const initialState = {
@@ -9,6 +11,7 @@ const initialState = {
 }
 
 const reducers = combineReducers({
+    user:userReducer
 
 })
 
