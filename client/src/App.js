@@ -19,15 +19,13 @@ function App() {
 
   return (
     <div >
-  <h1 class="text-3xl font-bold underline">
-    Hello world!
-  </h1>
+  
   
     <BrowserRouter>
     {token?.token && <Navbar/>}
    { modal && <Modal/>}
     <Routes>
-      <Route path="/" element = {!token?.regToken ? <Link to={'/User'}/> :<Home/>}/>
+      <Route path="/" element = {!token?.regToken ?<Home/>  :<Link to={'/User'}/>}/>
       <Route path='/user' element={<User/>}/>
     </Routes>
     

@@ -15,7 +15,7 @@ const initialState = {
 const reducers = combineReducers({
     user:userReducer,
     modal:modalReducer,
-    post:postReducer
+    posts:postReducer
 
 })
 

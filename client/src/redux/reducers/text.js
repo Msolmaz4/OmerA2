@@ -9,16 +9,16 @@ const postReducer = (state={posts:[]},action)=>{
             }
             case 'CREATE_POST':
             return{
-                posts:[...state.posts,action.posts]
+                posts:[...state.posts,action.payload]
             }
          
             case "UPDATE_POST":
                 return{
-                    posts:[state.posts.map(post =>post._id === action.payload._id ? action.payload :post)]
+                    posts:[...state.posts.map(post =>post._id === action.payload._id ? action.payload :post)]
                 }
              case "DELETE_POST"  :
                 return{
-                    posts :[state.posts.filter((post)=>post._id !== action.payload)]
+                    posts :[...state.posts.filter((post)=>post._id !== action.payload)]
                 } 
     
         default:

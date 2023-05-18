@@ -49,6 +49,8 @@ export const updatePostAction = (id,postData)=>async(dispatch) =>{
 }
 export const deletePostAction = (id)=>async(dispatch) =>{
 
+    console.log(id,'deletepostAction')
+
     try {
          await axios.delete(`http://localhost:5001/text/deletePost/${id}`)
 
