@@ -1,17 +1,16 @@
-const textController = require('../controller/textController')
+const createText = require('../controller/createText')
 const textAll = require('../controller/textAll')
-const textOne = require('../controller/textOne')
+const updateText = require('../controller/updateText')
 const delTex = require('../controller/deleteText')
 
 
 
 const router =require('express').Router()
 
-
-router.post('/',textController)
-router.get('/',textAll)
-router.get('/:id',textOne)
-router.delete('/:id',delTex)
+router.get('/getPosts',textAll)
+router.post('/createPost',createText)
+router.patch('/updatePost/:id',updateText)
+router.delete('/deletePost/:id',delTex)
 
 
 

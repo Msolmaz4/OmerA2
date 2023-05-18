@@ -6,6 +6,7 @@ import userReducer from './reducers/user'
 
 import thunk from 'redux-thunk'
 import modalReducer from './reducers/modal'
+import postReducer from './reducers/text'
 
 const initialState = {
 
@@ -13,7 +14,8 @@ const initialState = {
 
 const reducers = combineReducers({
     user:userReducer,
-    modal:modalReducer
+    modal:modalReducer,
+    post:postReducer
 
 })
 

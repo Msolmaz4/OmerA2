@@ -3,7 +3,7 @@ const Text = require('../models/textModels')
 
 
 
-const textController = async(req,res)=>{
+const createText = async(req,res)=>{
     //console.log('text req',req)
 
  // on tarfada yukleme zapinca kendi sayfasina gonder onmeli 
@@ -38,4 +38,4 @@ try {
 
 
 
-module.exports = textController
+module.exports = createText
