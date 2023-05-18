@@ -7,6 +7,8 @@ export const registirAction = (auth)=>async(dispatch) =>{
     try {
         const {data} = await axios.post('http://localhost:5001/user/register',auth)
 
+        console.log(data)
+
         dispatch({type:'REGISTER',payload:data})
         window.location ='/'
         
@@ -20,8 +22,9 @@ export const registirAction = (auth)=>async(dispatch) =>{
 export const loginAction = (auth)=>async(dispatch)=>{
     try {
         const {data} = await axios.post('http://localhost:5001/user/login',auth)
-
+        console.log(data,'data')
         dispatch({type:'LOGIN',payload:data})
+        
         window.location ='/'
     } catch (error) {
         console.log('autdataLogin',error)

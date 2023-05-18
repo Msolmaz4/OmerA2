@@ -1,16 +1,17 @@
 
 import { BrowserRouter,Routes,Route, Link} from 'react-router-dom'
 import Home from './pages/Home';
-import User from './pages/User';
+import User from './components/User';
 import useToken from './hoo/useToken';
 import Navbar from './pages/Navbar';
+import Modal from './components/Modal'
 
 function App() {
 
 
   const [token] = useToken()
 
-  //console.log(token.regToken,'token')
+ // console.log(token.regToken,'token')
 
 
 
@@ -21,7 +22,8 @@ function App() {
   </h1>
   
     <BrowserRouter>
-    {token?.regToken && <Navbar/>}
+    {token?.token && <Navbar/>}
+    <Modal/>
     <Routes>
       <Route path="/" element = {!token?.regToken ? <Link to={'/User'}/> :<Home/>}/>
       <Route path='/user' element={<User/>}/>
