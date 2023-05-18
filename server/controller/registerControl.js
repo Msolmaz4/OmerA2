@@ -1,5 +1,5 @@
 
-
+const jwt = require('jsonwebtoken')
 const Users = require('../models/userModel')
 const bcrypt = require('bcrypt')
 
@@ -16,21 +16,31 @@ const registerControl= async (req,res) =>{
          if(!checkEmail(email)) return res.send('email formaytinda degil')
         //burada email onceden kayili olup oldigini 
         const emailCont = await Users.findOne({email:email})
+
+      
+        
         if(emailCont) return res.send('kullanici var')
         const newwUser = await new Users({
             name:name,
             password :bcrypt.hashSync(password,8),
-            email:email
+            email:email,
+           
         })
-        console.log(newwUser)
+        const regToken = jwt.sign(
+            {  userId:newwUser._id
+            },process.env.AUTH_KEY,{expiresIn:'1h'}
+         )
+       
+        console.log(newwUser,regToken,'newUser')
         newwUser.save()
-            .then(()=>res.status(200).send('bu is oldu'))
-            .catch(()=>res.status('savede patladik'))
-        
+           
+        res.status(201).json({
+            newwUser,regToken ,status:'okey register'
+        })
 
         
     } catch (error) {
-        console.log(error)
+        console.log(error,'register backend error')
         
     }
 
