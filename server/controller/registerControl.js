@@ -26,7 +26,7 @@ const registerControl= async (req,res) =>{
             email:email,
            
         })
-        const regToken = jwt.sign(
+        const token = jwt.sign(
             {  userId:newwUser._id
             },process.env.AUTH_KEY,{expiresIn:'1h'}
          )
@@ -35,7 +35,7 @@ const registerControl= async (req,res) =>{
         newwUser.save()
            
         res.status(201).json({
-            newwUser,regToken ,status:'okey register'
+            newwUser,token ,status:'okey register'
         })
 
         

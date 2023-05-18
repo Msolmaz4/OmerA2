@@ -22,15 +22,15 @@ const loginControl = async (req,res)=>{
         //burada ilk bolumde token icinde ne gondermek istiyorsan onu sonras kendi key ekleyip gonderiyorsiun 
         //kontro icin jwebtoken gelen tokeni alip kopzala orden gorebilirsin
         //expris ne kadar sure canli kalma
-         const userToken = jwt.sign(
+         const token = jwt.sign(
             {  email,
                 userId:emailControll._id},process.env.AUTH_KEY,{expiresIn:'1d'}
          )
-         console.log('loginuserToken',userToken)
+         console.log('loginuserToken',token)
          res.status(200).json({
             message:'oluyor',
             data:emailControll,
-            token:userToken
+            token:token
          })
 
 
