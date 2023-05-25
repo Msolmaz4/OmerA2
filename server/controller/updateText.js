@@ -8,18 +8,26 @@ const updateText = async (req,res) =>{
 
     try {
 
-        console.log(req.body)
+      
+        
         const {id} =req.params
-        console.log(id,'updateid')
-        const update = await Text.findByIdAndUpdate(id,req.body,{new:true})
+        
+       console.log(id,'updateid')
+        const update = await Text.findByIdAndUpdate(id,{
+            title:title,
+            description:description,
+            user:user
+        },{new:true,runValidators:true})
         console.log(update,'update')
-        res.send(200).json(update)
+        res.status(200).json(
+            update
+        )
 
        
     } catch (error) {
         
         res.status(400).json({
-            message:'update',
+            message:'update HATA',
             error
         })
     }

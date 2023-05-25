@@ -7,10 +7,10 @@ const delTex = require('../controller/deleteText')
 
 const router =require('express').Router()
 
-router.get('/getPosts',textAll)
-router.post('/createPost',createText)
-router.patch('/updatePost/:id',updateText)
-router.delete('/deletePost/:id',delTex)
+router.get('/getposts',textAll)
+router.post('/createpost',createText)
+router.patch('/updatepost/:id',updateText)
+router.delete('/deletepost/:id',delTex)
 
 
 
