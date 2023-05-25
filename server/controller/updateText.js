@@ -13,14 +13,11 @@ const updateText = async (req,res) =>{
         const {id} =req.params
         
        console.log(id,'updateid')
-        const update = await Text.findByIdAndUpdate(id,{
-            title:title,
-            description:description,
-            user:user
-        },{new:true,runValidators:true})
+        const update = await Text.findOneAndUpdate(id,req.body,{new:true})
         console.log(update,'update')
         res.status(200).json(
-            update
+            {data:update,
+            succes : 'true'}
         )
 
        
